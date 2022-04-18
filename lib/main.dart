@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:test_web/domain/state/catalogue_state.dart';
+import 'package:test_web/services.dart';
 
 void main() {
+  setupServices();
   runApp(const MyApp());
 }
 
@@ -51,6 +54,7 @@ class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
   void _incrementCounter() {
+    appServices.catalogueController.loadCatalogue();
     setState(() {
       // This call to setState tells the Flutter framework that something has
       // changed in this State, which causes it to rerun the build method below
@@ -95,6 +99,19 @@ class _MyHomePageState extends State<MyHomePage> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            StreamBuilder<CatalogueState>(
+              stream: appServices.catalogueController.stream,
+              builder: (context, snapshot) {
+                final state =
+                    snapshot.data ?? appServices.catalogueController.value;
+
+                return Container(
+                  height: 100,
+                  width: 100,
+                  color: state.isLoading ? Colors.blue : Colors.yellow,
+                );
+              },
+            ),
             const SelectableText(
               'You have pushed the button this many times:',
             ),
