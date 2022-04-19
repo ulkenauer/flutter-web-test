@@ -3,9 +3,11 @@ import 'package:test_web/presentation/routes/catalogue_item_route.dart';
 import 'package:test_web/presentation/routes/catalogue_route.dart';
 import 'package:test_web/presentation/routes/home_route.dart';
 import 'package:test_web/services.dart';
+import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 
 void main() {
   setupServices();
+  setUrlStrategy(PathUrlStrategy());
   runApp(const MyApp());
 }
 

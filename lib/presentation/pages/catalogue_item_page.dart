@@ -43,12 +43,30 @@ class _CatalogueItemPageState extends State<CatalogueItemPage> {
                 final item = state.catalogueItem!;
                 return SingleChildScrollView(
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Center(
-                        child: Image.network(item.imageUrl),
+                        child: Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: Container(
+                            height: 500,
+                            child: Image.network(item.imageUrl),
+                          ),
+                        ),
                       ),
-                      Text(item.title),
-                      Text(item.description),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          item.title,
+                          style: TextStyle(
+                            fontSize: 24,
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(item.description),
+                      ),
                     ],
                   ),
                 );

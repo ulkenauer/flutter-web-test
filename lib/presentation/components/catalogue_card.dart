@@ -19,8 +19,11 @@ class CatalogueCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
         child: Stack(
           children: [
-            Image(
-              image: NetworkImage(catalogueItem.imageUrl),
+            Positioned.fill(
+              child: Image(
+                fit: BoxFit.cover,
+                image: NetworkImage(catalogueItem.imageUrl),
+              ),
             ),
             Positioned.fill(
                 child: Column(
