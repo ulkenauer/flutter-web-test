@@ -5,11 +5,11 @@ class CatalogueMockRepository implements CatalogueRepository {
   @override
   Future<Iterable<CatalogueItem>> getCatalogue() async {
     await Future.delayed(
-      const Duration(seconds: 2),
+      const Duration(milliseconds: 400),
     );
 
     return List.generate(
-      10,
+      30,
       (index) => CatalogueItem(
         id: index.toString(),
         description:
@@ -24,7 +24,7 @@ class CatalogueMockRepository implements CatalogueRepository {
   @override
   Future<CatalogueItem> getCatalogueItem(String id) async {
     await Future.delayed(
-      const Duration(seconds: 2),
+      const Duration(milliseconds: 400),
     );
 
     return CatalogueItem(

@@ -6,7 +6,7 @@ import 'package:test_web/domain/state/catalogue_state.dart';
 
 class CatalogueController {
   final StreamController<CatalogueState> _controller =
-      StreamController<CatalogueState>();
+      StreamController<CatalogueState>.broadcast();
 
   CatalogueState _state = CatalogueState(isLoading: false);
 
